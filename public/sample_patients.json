@@ -1,0 +1,26 @@
+[
+  {
+    "email": "jack",
+    "first_name": "jack",
+    "last_name": "black",
+    "phone": "823736747"
+  },
+  {
+    "email": "mira@mail.com",
+    "first_name": "mira",
+    "last_name": "nair",
+    "phone": "6373882"
+  },
+  {
+    "email": "arrik@mailer.com",
+    "first_name": "arrik",
+    "last_name": "khanna",
+    "phone": "66772263"
+  },
+  {
+    "email": "rose@sample.com",
+    "first_name": "rose",
+    "last_name": "dawson",
+    "phone": "3344556"
+  }
+]

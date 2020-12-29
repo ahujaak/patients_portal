@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal" id="import-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Import Patients</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag(import_patients_path, multipart: true, id: 'file-upload') do %>
+          <div class="form-group">
+            <%= label_tag "Select File" %><br />
+            <%= file_field_tag :file, class: 'form-control' %>
+          </div>
+          <div class='modal-footer'>
+            <%= submit_tag "Start Import", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

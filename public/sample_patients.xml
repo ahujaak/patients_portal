@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patients>
+   <patient>
+      <email>jack@email.com</email>
+      <first_name>jack</first_name>
+      <last_name>black</last_name>
+      <phone>823736747</phone>
+   </patient>
+   <patient>
+      <email>mira@mail.com</email>
+      <first_name>mira</first_name>
+      <last_name>nair</last_name>
+      <phone>6373882</phone>
+   </patient>
+   <patient>
+      <email>arrik@mailer.com</email>
+      <first_name>arrik</first_name>
+      <last_name>khanna</last_name>
+      <phone>66772263</phone>
+   </patient>
+   <patient>
+      <email>rose@sample.com</email>
+      <first_name>rose</first_name>
+      <last_name>dawson</last_name>
+      <phone>3344556</phone>
+   </patient>
+</patients>

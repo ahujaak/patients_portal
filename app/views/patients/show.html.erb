@@ -1,0 +1,26 @@
+<div class="white-bg padding-top-bottom">
+  <div class="container pad-top-15">
+    <p>
+      <h3><%= @patient.name %></h3>
+      <span>
+        <p>
+          <%= @patient.email %>
+        </p>
+        <p>
+          <%= @patient.phone %>
+        </p>
+      </span>
+      <p>
+        <strong>Medical Reports:</strong>
+        <% @patient.medical_reports.each do |report| %>
+          <div class="links-with-space">
+            <p> <%= report.blob.filename.to_s %>
+              <%= link_to 'Download', url_for(report), target: "_blank" %>
+            </p>
+          </div>
+        <% end %>
+      </p>
+    </p>
+    <%= link_to 'Back', patients_path %>
+  </div>
+</div>

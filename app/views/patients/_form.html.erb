@@ -1,0 +1,61 @@
+<div class="white-bg" id="instruction-template-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= form_for(@patient, html: { class: 'form-horizontal', role: 'form' }) do |f|  %>
+
+          <% if @patient.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this event from being saved:</h2>
+              <ul>
+              <% @patient.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.label :email %>
+              <%= f.text_field :email, class: 'form-control', required: true %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: 'form-control', required: true %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.label :phone %>
+              <%= f.text_field :phone, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.label :medical_reports %>
+              <%= f.file_field :medical_reports, multiple: true, class: 'form-control' %>
+              <% @patient.medical_reports.each do |report| %>
+                <%= report.blob.filename.to_s %>
+                <br>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12 col-sm-6">
+              <%= f.submit 'Submit', class: 'btn btn-success btn-block', id: 'patient-submit' %>
+            </div>
+          </div>
+        <% end %>
+      </div>      
+    </div>
+  </div>
+</div>

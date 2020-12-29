@@ -1,0 +1,71 @@
+<div class="white-bg padding-top-bottom">
+  <div class="container pad-top-15">
+    <!-- display flash messages start-->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-success alert-dismissible show" role="alert">
+        <%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+    <!-- display flash messages end -->
+    <div class="col-xs-12 col-sm-8 col-md-6 pl-0">
+      <h1> Patients </h1>
+    </div>
+    <div class="links-with-space">
+      <%= link_to 'New Patient', new_patient_path %>
+      <%= link_to 'Bulk Import', '#',"data-toggle" => "modal", 'data-target' => '#import-modal' %>
+      <%= link_to 'Bulk Export', '#',"data-toggle" => "modal", 'data-target' => '#export-modal' %>
+    </div>
+    <% if @patients.present? %>
+      <!-- Search form starts -->
+      <div class="text-right">
+        <form url='/patients', method='get', class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2" id="search-form">
+          <input name="email" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+            aria-label="Search" id="search-field">
+        </form>
+      </div>
+      <!-- Search form ends -->
+      <table
+        class='table table-striped'
+        id="table"
+        data-toggle="table"
+
+        >
+        <thead>
+          <tr>
+            <!-- Email header sortable -->
+            <th><a class="sort-heading" href="<%= sort_data('email')[:url] %>" >Email<i class="<%= sort_data('email')[:icon] %>" ></i></th></a>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="table-body">
+          <% @patients.each do |patient| %>
+            <tr>
+              <td><%= patient.email %></td>
+              <td><%= patient.first_name %></td>
+              <td><%= patient.last_name %></td>
+              <td><%= patient.phone %></td>
+              <td class="links-with-space">
+                <%= link_to 'Show', patient_path(patient.id) %>
+                <%= link_to 'Edit', edit_patient_path(patient.id) %>
+                <%= link_to 'Destroy', patient_path(patient.id), data: {confirm: 'Are you sure?'}, method: :delete %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!-- pagination section -->
+      <%= paginate @patients, window: 2 %>
+    <% else %>
+      <p> No Patients found in DB. </p>
+    <% end %>
+    <%= render partial: '/patients/import_modal' %>
+    <%= render partial: '/patients/export_modal' %>
+  </div>
+</div>

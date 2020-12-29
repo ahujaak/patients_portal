@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="main-navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="nav-brand-div">
+        <h3 class="nav-brand-text">EPHICACY Assignment</h3>
+      </div>
+    </div>
+    <div class="nav-item links-with-space pad-top-15 text-right">
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'signout login-links navbar-link-right', class: "btn btn-danger btn-xs" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

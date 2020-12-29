@@ -1,0 +1,16 @@
+.links-with-space a{
+   padding: 0px 20px;
+}
+
+.padding-top-bottom {
+  padding: 78px 0;
+}
+
+.white-bg {
+  background: #fff;
+}
+
+.sort-heading, .sort-heading:hover {
+  color: black;
+  text-decoration: none;
+}
